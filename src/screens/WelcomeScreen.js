@@ -19,8 +19,9 @@ export default function WelcomeScreen() {
     /* Pre Loader  */
     useEffect(() => {
         setTimeout(() => {
-            navigation.dispatch(CommonActions.navigate({
-                name: "Home"
+            navigation.dispatch(CommonActions.reset({
+                index: 0,
+                routes: [{name: 'Home'}]
             }))
         }, 2000); /* Temporizador  */
     }, [])
