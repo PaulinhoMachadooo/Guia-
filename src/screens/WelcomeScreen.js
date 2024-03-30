@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
     }, [])
 
     return (
-        <View className="bg-[#172554] flex-1 justify-center items-center space-y-10 relative">
+        <View className="bg-[#112342] flex-1 justify-center items-center space-y-10 relative">
             <View
                 style={{
                     flex: 1,
