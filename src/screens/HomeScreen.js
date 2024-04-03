@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, SafeAreaView, Image, TextInput, } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, Image, TextInput, StyleSheet } from "react-native";
 import React from "react";
 import {
     MagnifyingGlassIcon,
@@ -8,9 +8,10 @@ import { StatusBar } from "expo-status-bar";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import Categories from "../components/Categories";
 
-import Carousel from "../components/Carousel";
 
-export default function HomeScreen() {
+import Parallax from "../components";
+
+function HomeScreen() {
     return (
         <View className="flex-1 bg-white">
             <StatusBar style="dark" />
@@ -72,13 +73,8 @@ export default function HomeScreen() {
 
                         {/* SLIDE BAR */}
                         <View 
-                            style={{
-                                paddingTop: 60,
-                            }}
-                        >
-                            <Carousel 
-                            
-                            />
+                            style={ styles.container}>
+                              < Parallax />
                         </View>
 
                         {/* CATEGORIES */}
@@ -93,3 +89,16 @@ export default function HomeScreen() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 2,
+        paddingTop: 30,       
+        
+    },
+});
+
+export default HomeScreen;
