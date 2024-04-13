@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, SafeAreaView, Image, TextInput, StyleSheet } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, Image, TextInput, StyleSheet, } from "react-native";
 import React from "react";
 import {
     MagnifyingGlassIcon,
@@ -13,12 +13,12 @@ import Parallax from "../components/CarouselParallax";
 
 function HomeScreen() {
     return (
-        <View className="flex-1 bg-white">
+        <ScrollView className="flex-1 bg-white">
             <StatusBar style="dark" />
 
             <SafeAreaView>
                 <ScrollView 
-                    showsVerticalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
                     contentContainerStyle={{
                         paddingBottom: 50,
                     }}
@@ -79,14 +79,20 @@ function HomeScreen() {
 
                         {/* CATEGORIES */}
                         <View>
+                            <View style={{ flex: 1, alignItems: 'center', paddingBottom: 30, paddingTop: 30, }}>
+                                <Text
+                                    style={styles.textCategories}
+                                >Categorias</Text>
+                            </View>
+
                             <Categories />
-                            <Text>Categories</Text>
+                            
                         </View>
 
                     </View>
                 </ScrollView>
             </SafeAreaView>         
-        </View>
+        </ScrollView>
     );
 }
 
@@ -99,6 +105,11 @@ const styles = StyleSheet.create({
         paddingTop: 30,       
         
     },
+    textCategories: {
+       fontSize: 20,
+       fontWeight: 'bold',
+       color: 'gray'
+    }
 });
 
 export default HomeScreen;
