@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
+import CategoriesScreen from "../screens/CategoriesScreen"
 
 const Stack = createNativeStackNavigator();
 
@@ -11,13 +12,14 @@ export default function AppNavigation() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Welcome"
+                initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,
                 }}
             >
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Welcome" component={WelcomeScreen} />
+                <Stack.Screen name="CategoriesPage" component={CategoriesScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

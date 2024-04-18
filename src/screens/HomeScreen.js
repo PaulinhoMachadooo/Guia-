@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, SafeAreaView, Image, TextInput, StyleSheet, } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, Image, TextInput, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import React from "react";
 import {
     MagnifyingGlassIcon,
@@ -6,12 +6,17 @@ import {
 } from "react-native-heroicons/outline";
 import { StatusBar } from "expo-status-bar";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
-import Categories from "../components/Categories";
+
 
 
 import Parallax from "../components/CarouselParallax";
+import { useNavigation } from "@react-navigation/native";
 
-function HomeScreen() {
+let width = Dimensions.get('window').width
+
+export function HomeScreen() {
+    const navigation = useNavigation()
+
     return (
         <ScrollView className="flex-1 bg-white">
             <StatusBar style="dark" />
@@ -27,7 +32,7 @@ function HomeScreen() {
                     {/* LOGO TOP */}
                     
                     <View className="mx-4 flex-row justify-between items-center">
-                        <Bars3Icon size={hp(5)} color={"gray"} />
+                        <Bars3Icon size={hp(5)} color={"gray"} onPress={() => navigation.navigate('CategoriesPage')}/>
                         <Image 
                             source={require("../../src/assets/images/logo.png")}
                             style={{
@@ -85,7 +90,47 @@ function HomeScreen() {
                                 >Categorias</Text>
                             </View>
 
-                            <Categories />
+                        {/* Categories Icons */}
+
+                        <View style={styles.container2} >
+                            <TouchableOpacity onPress={() => navigation.navigate('CategoriesPage')} >
+                                <View style={styles.box}>
+                                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
+                                        <Image style={styles.img} source={require('../../src/assets/images/categories/academia.jpg')} />
+                                    </View>
+                                    
+                                </View> 
+                                <View style={styles.text}>
+                                    <Text>ACADEMIA</Text>
+                                </View>             
+                            </TouchableOpacity >
+                            {/*-------------------------------------------------------------------------*/} 
+                            
+                            <TouchableOpacity onPress={() => navigation.navigate('CategoriesPage')} >
+                                <View style={styles.box}>
+                                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
+                                        <Image style={styles.img} source={require('../../src/assets/images/categories/academia.jpg')} />
+                                    </View>
+                                    
+                                </View> 
+                                <View style={styles.text}>
+                                    <Text>ACADEMIA</Text>
+                                </View>             
+                            </TouchableOpacity >
+                            <TouchableOpacity onPress={() => navigation.navigate('CategoriesPage')} >
+                                <View style={styles.box}>
+                                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
+                                        <Image style={styles.img} source={require('../../src/assets/images/categories/academia.jpg')} />
+                                    </View>
+                                    
+                                </View> 
+                                <View style={styles.text}>
+                                    <Text>ACADEMIA</Text>
+                                </View>             
+                            </TouchableOpacity >
+                            
+                        </View>
+            
                             
                         </View>
 
@@ -109,7 +154,31 @@ const styles = StyleSheet.create({
        fontSize: 20,
        fontWeight: 'bold',
        color: 'gray'
-    }
+    },
+    container2:{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent:'center'
+    },
+    box:{
+        flex:1,
+        height: 70,
+        margin: 10,
+        width: width/4,
+        borderRadius: 15,
+        borderColor:'gray',
+        borderWidth: 0.5,
+    },
+    img:{
+        width: 50,
+        height: 50,
+    },
+    text:{
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+
 });
 
 export default HomeScreen;
