@@ -44,12 +44,13 @@ export function HomeScreen() {
 
                     {/* SEARCH */}
 
-            
+                            
                     <View
                         style={{
-                            paddingTop:50,
+                            paddingTop:0,
                         }}
                     >
+                        {/*
                         <View className="mx-8 bg-white flex-row items-center rounded-3xl p-[6]"
                             style={{                              
                                 borderRadius: 50,
@@ -75,6 +76,7 @@ export function HomeScreen() {
                                 className="flex-1 text-base mb-1 pl-1 "
                             />
                         </View>
+                            */}
 
                         {/* SLIDE BAR */}
                         <View 
