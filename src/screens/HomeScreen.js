@@ -32,7 +32,7 @@ export function HomeScreen() {
                     {/* LOGO TOP */}
                     
                     <View className="mx-4 flex-row justify-between items-center">
-                        <Bars3Icon size={hp(5)} color={"gray"} onPress={() => navigation.navigate('CategoriesPage')}/>
+                        <Bars3Icon size={hp(5)} color={"gray"} onPress={() => navigation.navigate('ListCategories')}/>
                         <Image 
                             source={require("../../src/assets/images/logo.png")}
                             style={{
